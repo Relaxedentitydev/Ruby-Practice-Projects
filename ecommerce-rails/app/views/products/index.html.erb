@@ -1,0 +1,20 @@
+<div class="w-full">
+  <p style="color: green"><%= notice %></p>
+
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col">
+        <h1 class="mb-4 d-inline-block">Products</h1>
+        <%= link_to "New product", new_product_path, class: "btn btn-primary btn-sm mb-3 ms-3" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <% @products.each do |product| %>
+        <div class="col-md-4 mb-4">
+          <%= render partial: 'product', locals: { product: product } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

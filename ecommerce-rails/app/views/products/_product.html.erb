@@ -1,0 +1,16 @@
+<div class="card">
+    <%= image_tag product.images.first, class: "card-img-top", style: "height: 250px; object-fit: cover; hover" %>
+  <div class="card-body">
+    <h5 class="card-title"><%= product.name %></h5>
+    <p class="card-text"><%= product.description %></p>
+    <p class="card-text"><strong>Price:</strong> <%= number_to_currency(product.price) %></p>
+    <% unless params[:action] == 'show' %>
+      <%= link_to "View Details", product_path(product), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+<style>
+  .card:hover {
+    filter: brightness(75%);
+  }
+</style>

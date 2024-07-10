@@ -1,0 +1,21 @@
+<div class = "container mt-5 text-center">
+    <h1>Pages#home</h1>
+    <p>Find me in app/views/pages/home.html.erb</p>
+    <%= month_calendar(events: @consultations) do |date, consultations|%>
+    <div class= "day">
+        <%= date.day%>
+    </div>
+        <% consultations.each do |consultation|%>
+            <div class= "card-header">
+                <div class = "card-title">
+                    <%= link_to consultation.title, consultation %>
+                </div>
+            </div>
+            <div class= "card-body">
+                <p class= "card-text">
+                    <%= consultation.description%>
+                </p>
+            </div>
+        <%end%>
+    <% end %>
+<div>

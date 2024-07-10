@@ -1,0 +1,6 @@
+[submodule "CalendarApp"]
+	path = CalendarApp
+	url = https://github.com/Relaxedentitydev/Ruby-Practice-Projects.git
+[submodule "analyzing-shakespeare"]
+	path = analyzing-shakespeare
+	url = https://github.com/Relaxedentitydev/Ruby-Practice-Projects.git

@@ -1,0 +1,12 @@
+{
+  "name": "ecommerce-rails",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Lakshman Santhanam <b9062368@newcastle.ac.uk>",
+  "license": "MIT",
+  "dependencies": {
+    "@rails/ujs": "^7.0.0",
+    "bootstrap": "^5.3.3",
+    "trix": "^1.3.1"
+  }
+}

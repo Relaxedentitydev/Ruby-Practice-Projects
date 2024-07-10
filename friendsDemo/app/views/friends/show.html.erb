@@ -1,0 +1,27 @@
+<div class="jumbotron">
+  <h1 class="display-4">
+  <%= @friend.first_name %>
+  <%= @friend.last_name %>
+  </h1>
+  <br>
+  <p class="lead">
+  <%= @friend.email %>
+  </p>
+  <hr class="my-4">
+  <p>
+  <%= @friend.phone %> | 
+  <%= @friend.twitter %>
+  </p>
+  <br>
+  <p class="lead">
+    <div>
+      <%= link_to "Edit this friend", edit_friend_path(@friend), class: "btn btn-outline-primary"  %> 
+      <%= link_to "Back to friends", friends_path, class: "btn btn-outline-primary"  %>
+      <%= link_to "Destroy this friend", friend_path(@friend), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-primary" %>
+    </div>
+  </p>
+</div>
+<br>
+<br>
+
+
