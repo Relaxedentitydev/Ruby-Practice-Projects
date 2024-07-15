@@ -5,7 +5,12 @@
     <p class="card-text"><%= product.description %></p>
     <p class="card-text"><strong>Price:</strong> <%= number_to_currency(product.price) %></p>
     <% unless params[:action] == 'show' %>
-      <%= link_to "View Details", product_path(product), class: "btn btn-primary" %>
+      <%= link_to "View Details", product_path(product), class: "btn btn-primary me-2" %>
+      <% if user_signed_in? %>
+        <%= link_to add_product_cart_path(product_id: product.id), method: :post,data: { turbo_method: "post" }, class: "btn btn-outline-success", title: "Add to Cart" do %>
+          <i class="bi bi-cart-plus"></i> Add to Cart
+        <% end %>
+      <% end %>
     <% end %>
   </div>
 </div>

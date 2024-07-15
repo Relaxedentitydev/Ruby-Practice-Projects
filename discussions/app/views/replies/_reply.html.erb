@@ -1,0 +1,28 @@
+<div class="box border p-3 mb-3">
+  <article class="media">
+    <div class="media-left">
+      <figure class="image is-48x48">
+        <%#= gravatar_image_tag(reply.user.email, class: 'border-radius-50', size: 48, alt: reply.user.email) %>
+      </figure>
+    </div>
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong><%= reply.user.email %></strong> <small><%= time_ago_in_words(reply.created_at) %></small>
+          <br/>
+          <%= reply.reply %>
+        </p>
+      </div>
+      <nav class="level is-mobile">
+        <div class="level-left">
+          <%= link_to edit_discussion_reply_path(reply.discussion, reply), class: 'level-item me-3' do %>
+            edit
+          <% end %>
+          <%= link_to [reply.discussion, reply], method: :delete, data: { turbo_method: :delete,  turbo_confirm: "Are you sure?" }, class: 'level-item' do %>
+            delete
+          <% end %>
+        </div>
+      </nav>
+    </div>
+  </article>
+</div>

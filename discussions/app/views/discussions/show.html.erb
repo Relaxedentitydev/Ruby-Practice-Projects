@@ -1,0 +1,39 @@
+<div class="container pt-5">
+  <div class="row">
+    <div class="col-md-8">
+      <h1 class="h2 text-muted discussion-title"><%= @discussion.title %></h1>
+      <h3 class="h6 text-secondary">by <%= @discussion.user.email %> in <%= link_to @discussion.channel.channel, @discussion.channel %></h3>
+      <div class="d-flex justify-content-between align-items-center">
+        <div></div>
+        <div>
+          <div class="btn-group">
+            <%= link_to 'Edit Discussion', edit_discussion_path(@discussion), class: 'btn btn-outline-secondary btn-sm me-2 text-grey' %>
+            <%= link_to 'Delete', discussion_path(@discussion), method: :delete, data: { confirm: "Delete discussion?" }, class: 'btn btn-outline-secondary btn-sm text-grey' %>
+          </div>
+        </div>
+      </div>
+      <div class="content mt-4"><%= @discussion.content %></div>
+
+      <h2 class="h5 text-secondary mt-4"><%= @discussion.replies.count %> Replies</h2>
+
+      <div id="discussion-replies" class="mt-3">
+        <%= render @discussion.replies %>
+      </div>
+
+      <hr class="mt-4" />
+
+      <h3 class="h3 text-muted mt-4">Leave a reply</h3>
+      <% if user_signed_in? %>
+        <%= render 'replies/form' %>
+      <% else %>
+      <p>To reply you need to <%= link_to 'login', new_user_session_path %>. Don't have an account?
+        <%= link_to 'Sign up', new_user_registration_path %> for one.</p>
+      <% end %>
+
+    </div>
+
+    <div class="col-md-4">
+      <%= render 'sidebar' %>
+    </div>
+  </div>
+</div>

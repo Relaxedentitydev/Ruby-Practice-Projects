@@ -1,0 +1,13 @@
+<div class="col-md-5 offset-md-1">
+  <h3 class="h5 text-secondary">Channels</h3>
+
+  <ul class="list-group">
+    <% @channels.each do |c| %>
+      <li class="list-group-item"><%= link_to c.channel, c %></li>
+    <% end %>
+  </ul>
+
+  <br/>
+
+  <%= link_to 'New Channel', new_channel_path, class: 'btn btn-primary' %>
+</div>

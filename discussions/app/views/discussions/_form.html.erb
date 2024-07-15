@@ -1,0 +1,21 @@
+<%= simple_form_for(@discussion) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-group">
+    <%= f.input :title, required: true, input_html: { class: 'form-control' }, wrapper: false %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :content, required: true, input_html: { class: 'form-control' }, wrapper: false %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :channel_id, "Channel", class: 'form-label' %>
+    <%= f.input_field :channel_id, collection: @channels.map { |c| [c.channel, c.id] }, prompt: "Select channel", class: 'form-select' %>
+  </div>
+  <br>
+
+  <div class="form-group">
+    <%= f.button :submit, class: "btn btn-primary" %>
+  </div>
+<% end %>
